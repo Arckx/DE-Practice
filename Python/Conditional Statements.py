@@ -8,7 +8,7 @@ valid = True
 email = email.strip()
 #email must not be empty
 if email == "":
-    print("Eamil cannot be empty")
+    print("Email cannot be empty")
     valid = False
 #email must contain '.' and '@'
 if not('.' in email and '@' in email):
@@ -20,7 +20,7 @@ if email.count('@') != 1:
     valid = False
 #email must end with '.com', '.org' or '.net'
 if not email.endswith(('.com', '.org', '.net')):
-    print("EMail must end with .com, .org or .net")
+    print("Email must end with .com, .org or .net")
     valid = False
 #emal must not be longer than 254
 if len(email) > 254:
