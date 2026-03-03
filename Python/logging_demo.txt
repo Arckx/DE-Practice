@@ -1,0 +1,13 @@
+2026-03-03 01:18:11,302 - INFO - 6 - The function: sum execution has started.
+2026-03-03 01:18:11,302 - DEBUG - 7 - Input values received: a=5, b=5
+2026-03-03 01:18:11,303 - INFO - 15 - the total sum value is 10
+2026-03-03 01:19:43,569 - INFO - 6 - The function: sum execution has started.
+2026-03-03 01:19:43,569 - DEBUG - 7 - Input values received: a=5, b=5
+2026-03-03 01:19:43,569 - CRITICAL - 10 - Invalid data types provided. Only int or float allowed.
+2026-03-03 01:20:06,425 - INFO - 6 - The function: sum execution has started.
+2026-03-03 01:20:06,425 - DEBUG - 7 - Input values received: a=5, b=5
+2026-03-03 01:20:06,425 - INFO - 15 - the total sum value is 10
+2026-03-03 01:21:25,977 - INFO - 6 - The function: sum execution has started.
+2026-03-03 01:21:25,977 - DEBUG - 7 - Input values received: a=5, b=0
+2026-03-03 01:21:25,977 - WARNING - 15 - One of the input values is zero.
+2026-03-03 01:21:25,977 - INFO - 18 - the total sum value is 5
