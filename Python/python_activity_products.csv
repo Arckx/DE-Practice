@@ -1,0 +1,21 @@
+product_id,product_name,price,cost
+1,Notebook,5.0,2.0
+2,Pen,1.0,0.3
+3,Pencil,1.0,0.2
+4,Eraser,0.5,0.2
+5,Marker,2.0,0.5
+6,Stapler,4.0,1.0
+7,Tape,2.0,0.7
+8,Glue,3.0,1.0
+9,Highlighter,2.0,0.6
+10,Scissors,6.0,2.0
+11,Folder,3.0,1.0
+12,Ruler,2.0,1.5
+13,Calculator,15.0,9.0
+14,Sharpener,1.0,0.4
+15,Binder,5.0,3.0
+16,Clipboard,7.0,4.0
+17,Sticky Notes,3.0,1.5
+18,Whiteboard Marker,4.0,2.0
+19,Paper Pack,10.0,7.0
+20,Desk Organizer,12.0,10.0
