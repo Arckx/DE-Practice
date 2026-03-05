@@ -23,7 +23,6 @@ FROM
 FULL JOIN Sales.Products as sp ON so.ProductID = sp.ProductID
 FULL JOIN Sales.Customers as sc ON so.CustomerID = sc.CustomerID
 
-
 --Using SubQuery in From command
 SELECT 
 	so.ProductID,
@@ -35,3 +34,9 @@ FROM Sales.Orders as so
 		FULL JOIN Sales.Customers as sc ON so.CustomerID = sc.CustomerID
 	
 GROUP BY so.ProductID, sp.Price
+
+--SubQuery in WHERE command
+
+SELECT * FROM Sales.Orders
+WHERE Quantity > (SELECT AVG(Quantity) FROM Sales.Orders)
+
