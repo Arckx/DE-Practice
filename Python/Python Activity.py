@@ -1,7 +1,12 @@
 import logging
 import pandas as pd
 
-# Defining DataSet
+logging.basicConfig(filename = 'python_activity.txt', level = logging.INFO, filemode='w', format = "%(asctime)s - %(levelname)s - %(lineno)d - %(message)s")
+
+logging.info("Program has Started")
+
+# DataSet Definition
+logging.info("DataSet Definition")
 products = [
 {"product_id": 1, "product_name": "Notebook", "price": 5, "cost": 2},
 {"product_id": 2, "product_name": "Pen", "price": 1, "cost": 0.3},
@@ -48,64 +53,71 @@ transactions = [
 {"transaction_id": 20, "product_id": 17, "quantity": 5}
 ]
 
-product_list = pd.DataFrame(products)
-product_list.to_csv("python_activity_products.csv", index=False)
-
-transaction_list = pd.DataFrame(transactions)
-transaction_list.to_csv("python_activity_transactions.csv", index=False)
-
-df1 = pd.read_csv("python_activity_products.csv")
-df2 = pd.read_csv("python_activity_transactions.csv")
-
-# print(df2)
-
-order_details = pd.merge(df1, df2, left_on= 'product_id', right_on= 'product_id', how= 'inner')
-
-order_details['revenue'] = order_details['price'] * order_details['quantity']
-
-order_details['profit'] = order_details['revenue'] - (order_details['quantity'] * order_details['cost'])
-groupby_product_name = order_details.groupby('product_name').sum().sort_values(by='quantity', ascending=False)
-# print(groupby_product_name)
 
 
-
-
-# Functions
-def product_lookup(product_id):
-    for product in products:
-        if product["product_id"] == product_id:
-            return product
-    return None
-
+#Data Validation
 def transaction_validation(transaction):
+    logging.info("Validating transaction data")
     product = product_lookup(transaction["product_id"])
     if product is None or transaction["quantity"] <= 0:
         return False
     return True
+logging.info("Transaction Data successfully validated")
+
+#Data Processing
+def product_lookup(product_id):
+    logging.info("Validating If Product ID exists")
+    for product in products:
+        if product["product_id"] == product_id:
+            return product
+        logging.info("Product ID exists")
+    return None
 
 def revenue_calculation(transaction):
+    logging.info("Calculating Revenue per product")
     if not transaction_validation(transaction):
         return 0
     product = product_lookup(transaction["product_id"])
+    logging.info("Revenue Calculated")
     return product["price"] * transaction["quantity"]
+
 
 # print(revenue_calculation(transactions[1]))
 
-# Which product generated the highest revenue?
-# But solve it using only:
-# loops
-# dictionaries
-# functions
-
-def high_revenue(transaction):
+def highest_revenue(transaction, products):
+    logging.info("Finding the product that genetates the highest revenue")
     high = 0
+    best_product = None
     for record in transaction:
-        # product = product_lookup(transaction["product_id"])
-        high = record
-        # print(record) 
+        for product in products:
+            if record['product_id'] == product['product_id']:
+                revenue = record['quantity'] * product['price']
+                if high < revenue:
+                    high = revenue
+                    best_product = product['product_name']
+                logging.info("Found the product with highest revenue")
 
-high_revenue(transactions)    
+    print("Revenue Generated:", high)
+    print("Best Product:", best_product)
 
-# print(transaction_validation(transactions[5]))
+# highest_revenue(transactions, products)    
 
-# # print(revenue_calculation(transactions[5]))
+logging.info("Converting list of dictionaries into separate dataframes")
+product_list = pd.DataFrame(products)
+# product_list.to_csv("python_activity_products.csv", index=False)
+
+transaction_list = pd.DataFrame(transactions)
+# transaction_list.to_csv("python_activity_transactions.csv", index=False)
+
+# print(product_list)
+
+logging.info("Merging two dataframes into one as inner join")
+order_details = pd.merge(product_list, transaction_list, left_on= 'product_id', right_on= 'product_id', how= 'inner')
+
+logging.info("Creation of a new column revenue")
+order_details['revenue'] = order_details['price'] * order_details['quantity']
+
+logging.info("Creation of a new column profit")
+order_details['profit'] = order_details['revenue'] - (order_details['quantity'] * order_details['cost'])
+groupby_product_name = order_details.groupby('product_name').sum().sort_values(by='quantity', ascending=False)
+print(groupby_product_name)
