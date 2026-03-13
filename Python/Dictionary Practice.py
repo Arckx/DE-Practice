@@ -9,3 +9,6 @@ customer_header = customer_raw_data.split("\n")[0]
 customer_data = customer_raw_data.split("\n")[1:]
 
 print(customer_header)
+
+customer_dict = {}
+
