@@ -1,0 +1,9 @@
+emp_id,name,age,department,salary,joining_date,city
+1,Ali,25,IT,"50000","2022-01-15",Lahore
+2,Sara,30,HR,"60000","2021-03-10",Karachi
+3,Ahmed,28,Finance,"55000","2020-07-22",Islamabad
+4,John,35,IT,"70000","2019-11-01",Lahore
+5,Ayesha,22,Marketing,"45000","2023-05-18",Faisalabad
+6,Usman,40,Finance,"80000","2018-09-30",Karachi
+7,Hina,27,HR,"52000","2022-12-01",Lahore
+8,David,33,IT,"75000","2020-06-15",Islamabad

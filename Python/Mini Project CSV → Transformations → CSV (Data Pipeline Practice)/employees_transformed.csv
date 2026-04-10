@@ -1,0 +1,10 @@
+emp_id,name,age,department,salary,joining_date,city,salary_after_tax,experience_years
+1,Ali,25,IT,50000,2022-01-15 00:00:00,Lahore,45000.0,4.0
+2,Sara,30,HR,60000,2021-03-10 00:00:00,Karachi,54000.0,5.0
+3,Ahmed,28,Finance,55000,2020-07-22 00:00:00,Islamabad,49500.0,6.0
+4,John,35,IT,70000,2019-11-01 00:00:00,Lahore,63000.0,7.0
+5,Ayesha,22,Marketing,45000,2023-05-18 00:00:00,Faisalabad,40500.0,3.0
+6,Usman,40,Finance,80000,2018-09-30 00:00:00,Karachi,72000.0,8.0
+7,Hina,27,HR,52000,2022-12-01 00:00:00,Lahore,46800.0,4.0
+8,David,33,IT,75000,2020-06-15 00:00:00,Islamabad,67500.0,6.0
+9,Bilal,29,IT,65000,2024-02-01,Lahore,,
