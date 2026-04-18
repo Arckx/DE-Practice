@@ -84,6 +84,7 @@ INSERT INTO order_items VALUES
 (5, 4, 1, 1),
 (6, 5, 4, 3);
 
+--Beginner Level
 --Find all customers whose age is greater than the average age of all customers.
 
 SELECT * FROM customers
@@ -123,5 +124,55 @@ SELECT department_id, count(department_id) as total_employees
 FROM employee
 GROUP BY department_id
 
+--Intermediate Level
 --Find the second highest salary from the employees table.
+
+SELECT * from employees
+
+SELECT name, salary
+FROM employees
+WHERE salary = (SELECT MAX(salary)
+                FROM employees
+                WHERE salary < (SELECT MAX(salary) FROM Employees)
+                )
+
+--Find customers who have never placed an order.
+SELECT * FROM customers
+SELECT * FROM orders
+
+SELECT id 
+FROM customers c
+WHERE NOT EXISTS (SELECT customer_id from orders o WHERE c.id = o.customer_id)
+
+--Calculate running total of sales ordered by date.
+SELECT * FROM orders
+
+WITH running_total_sales as (
+    SELECT 
+        order_date, 
+        amount,
+        SUM(amount) OVER(ORDER BY order_date) as total_amount
+    FROM orders
+)
+SELECT * FROM running_total_sales
+
+--Find the department with the highest average salary.
+SELECT * FROM employees
+
+
+
+WITH avg_salary as (
+    SELECT department_id, AVG(salary) as dept_avg_salary
+    FROM employees
+    GROUP BY department_id
+)
+SELECT TOP 1
+    department_id,
+    dept_avg_salary
+FROM avg_salary
+ORDER BY dept_avg_salary DESC;
+
+--Upper Intermediate
+--Find employees whose salary is higher than the average salary of their department.
+SELECT * FROM employees
 
