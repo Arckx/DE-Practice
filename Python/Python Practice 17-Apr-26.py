@@ -48,15 +48,15 @@
 # Problem:
 # Count frequency of each word in a sentence.
 
-sentence = "data engineering is fun and data engineering is powerful and data is everywhere"
+# sentence = "data engineering is fun and data engineering is powerful and data is everywhere"
 
-words = sentence.lower().split(" ")
-counts = {}
-for word in words:
-    if word in counts:
-        counts[word] += 1
-    else:
-        counts[word] = 1
+# words = sentence.lower().split(" ")
+# counts = {}
+# for word in words:
+#     if word in counts:
+#         counts[word] += 1
+#     else:
+#         counts[word] = 1
 
-print(counts)
+# print(counts)
 
