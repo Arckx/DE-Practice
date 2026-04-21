@@ -1,0 +1,6 @@
+order_id,product,category,price,quantity
+11,Monitor,Electronics,300,1.0
+12,Book,Stationery,ten,5.0
+13,Sofa,Furniture,500,
+14,Mousepad,Electronics,15,2.0
+15,Stapler,Stationery,8,3.0
