@@ -64,3 +64,36 @@ SELECT *
 FROM multiple_orders
 WHERE total_orders > 1
 
+--List products that do not appear in the Orders table.
+SELECT * FROM Sales.Products
+SELECT * FROM Sales.Orders
+
+SELECT
+	p.Product,
+	o.*
+FROM Sales.Products p
+LEFT JOIN Sales.Orders o
+ON o.ProductID = p.ProductID
+WHERE o.OrderID is NULL
+
+--Calculate the average sales amount per customer.
+SELECT
+	o.CustomerID,
+	AVG(o.Quantity * p.Price) as avg_sales
+FROM Sales.Products p
+INNER JOIN Sales.Orders o
+ON p.ProductID = o.ProductID
+GROUP BY CustomerID
+
+--Detect duplicate orders where ProductID and OrderDate are the same.
+
+WITH duplicate_product_orders as 
+(SELECT 
+	ProductID, 
+	OrderDate,
+	COUNT(*) OVER(PARTITION BY ProductID, OrderDate) as multiple_orders
+FROM Sales.Orders)
+SELECT *
+FROM duplicate_product_orders
+WHERE multiple_orders > 1
+
