@@ -21,19 +21,20 @@ schemas = {
 
 def extract_files(file):
     df = pd.read_csv(file)
-    df.info()
-    # print(df)
-    # return df
+    return df
 
 def cleaning_data(df, schema):
-    df = df.astype(schema)
-    # for column, dtype in schema.items():
+    for column, dtype in schema.items():
+        if dtype == "datetime":
+            df[column] = pd.to_datetime(df[column], errors='coerce')
+        else:
+            df[column] = df[column].astype(dtype)
+    return df
 
 
-def validate_data(customer_df, product_df, sale_df):
+def validate_data(df):
     pass
-    valid_data = []
-    invalid_data = []
+    
     # No negative quantity
     # if sale_df['quantity'] < 0:
     #     print('Quantity has a negative value')
@@ -46,6 +47,9 @@ def validate_data(customer_df, product_df, sale_df):
     # else:
     #     print('Product ID not present in the Product table')
 
+valid_data = []
+invalid_data = []
+
 def main():
     # read csv files
     customer_data = extract_files(customers_data)
@@ -54,10 +58,10 @@ def main():
     
     # clean csv files
     clean_customer_data = cleaning_data(customer_data, schemas["customers"])
-    # clean_product_data = cleaning_data(product_data)
-    # clean_sale_data = cleaning_data(sale_data)
+    clean_product_data = cleaning_data(product_data, schemas["products"])
+    clean_sale_data = cleaning_data(sale_data, schemas["sales"])
     
     # validate data
-    # validate_data(clean_customer_data, clean_product_data, clean_sale_data)
+    # validate_data(clean_customer_data)
 
 main()
