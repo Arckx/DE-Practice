@@ -1,0 +1,5 @@
+customer_id,name,city,order_id,product_id,order_date,quantity,price,product_name,category,total_amount,order_month
+C001,Ahmed,Lahore,1001,P001,2024-01-01,2,500.0,Laptop,Electronics,1000.0,1
+C001,Ahmed,Lahore,1003,P003,2024-01-05,5,100.0,Desk,Furniture,500.0,1
+C002,Sara,Karachi,1002,P002,2024-01-02,1,300.0,Phone,Electronics,300.0,1
+C003,Ali,Islamabad,1004,P001,2024-01-07,2,500.0,Laptop,Electronics,1000.0,1

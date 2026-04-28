@@ -1,0 +1,4 @@
+customer_id,name,city,reason,order_id,product_id,order_date,quantity,price
+C004,,,null customer name,,,,,
+C004,,,null order_date,1005.0,P002,,3.0,300.0
+C002,,,negative quantity,1006.0,P004,2024-01-10,-1.0,200.0

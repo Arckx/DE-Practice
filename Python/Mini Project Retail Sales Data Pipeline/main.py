@@ -1,4 +1,12 @@
 import pandas as pd
+import logging
+
+from src.extract import extract_files
+from src.transform import cleaning_data, transform_data, aggregate_data
+from src.validate import validate_data
+from src.load import load_data
+
+logging.basicConfig(filename='logs/log.txt', filemode='w', level=logging.INFO)
 
 customers_data = 'data/customers.csv'
 products_data = 'data/products.csv'
@@ -18,47 +26,7 @@ schemas = {
                     "product_name": "str",
                     "category": "str" }
 }
-
-def extract_files(file):
-    df = pd.read_csv(file)
-    return df
-
-def cleaning_data(df, schema):
-    for column, dtype in schema.items():
-        if dtype == "datetime":
-            df[column] = pd.to_datetime(df[column], errors='coerce')
-        else:
-            df[column] = df[column].astype(dtype)
-    return df
-
-
-def validate_data(customer_df, product_df, sale_df):
-    bad_rows_list = []
-    customer_df = customer_df.copy()
-    product_df = product_df.copy()
-    sale_df = sale_df.copy()
     
-    # No negative quantity
-    condition = sale_df['quantity'] < 0
-    bad_rows = sale_df[condition].copy()
-    bad_rows['reason'] = "negative quantity"
-    bad_rows_list.append(bad_rows)
-    df = df[~condition]
-
-    # No null customer_id
-    condition = df['customer_id'].isna() == True
-    bad_rows = df[condition].copy()
-    bad_rows['reason'] = "null customer_id"
-    bad_rows_list.append(bad_rows)
-    df = df[~condition]
-
-    # Valid product_id exists in product table
-    # if sale_df['product_id'].isin(product_df['product_id']) == True:
-    #     pass
-    # else:
-    #     print('Product ID not present in the Product table')
-    print(df)
-    print(bad_rows_list)
 
 def main():
     # read csv files
@@ -70,8 +38,22 @@ def main():
     clean_customer_data = cleaning_data(customer_data, schemas["customers"])
     clean_product_data = cleaning_data(product_data, schemas["products"])
     clean_sale_data = cleaning_data(sale_data, schemas["sales"])
-    
+
     # validate data
-    validate_data(clean_customer_data, clean_product_data, clean_sale_data)
+    bad_data, vcustomer_data, vproduct_data, vsale_data = validate_data(clean_customer_data, clean_product_data, clean_sale_data)
+    # print(bad_data, vcustomer_data, vproduct_data, vsale_data)
+
+    # transform data
+    transformed_data = transform_data(vcustomer_data, vproduct_data, vsale_data)
+
+    # aggregate data
+    total_sales_per_city, top_selling_product, monthly_revenue = aggregate_data(transformed_data)
+
+    logging.info(f"Total rows processed: {sale_data.shape[0]}")
+    logging.info(f"Invalid rows: {bad_data.shape[0]}")
+    logging.info(f"Clean rows: {transformed_data.shape[0]}")
+
+    # load data
+    load_data(transformed_data, bad_data)
 
 main()

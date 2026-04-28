@@ -1,0 +1,3 @@
+INFO:root:Total rows processed: 6
+INFO:root:Invalid rows: 3
+INFO:root:Clean rows: 4
