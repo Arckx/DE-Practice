@@ -32,23 +32,33 @@ def cleaning_data(df, schema):
     return df
 
 
-def validate_data(df):
-    pass
+def validate_data(customer_df, product_df, sale_df):
+    bad_rows_list = []
+    customer_df = customer_df.copy()
+    product_df = product_df.copy()
+    sale_df = sale_df.copy()
     
     # No negative quantity
-    # if sale_df['quantity'] < 0:
-    #     print('Quantity has a negative value')
+    condition = sale_df['quantity'] < 0
+    bad_rows = sale_df[condition].copy()
+    bad_rows['reason'] = "negative quantity"
+    bad_rows_list.append(bad_rows)
+    df = df[~condition]
+
     # No null customer_id
-    # if customer_df.isna() == True:
-    #     print('Customer ID  has a null value')
+    condition = df['customer_id'].isna() == True
+    bad_rows = df[condition].copy()
+    bad_rows['reason'] = "null customer_id"
+    bad_rows_list.append(bad_rows)
+    df = df[~condition]
+
     # Valid product_id exists in product table
     # if sale_df['product_id'].isin(product_df['product_id']) == True:
     #     pass
     # else:
     #     print('Product ID not present in the Product table')
-
-valid_data = []
-invalid_data = []
+    print(df)
+    print(bad_rows_list)
 
 def main():
     # read csv files
@@ -62,6 +72,6 @@ def main():
     clean_sale_data = cleaning_data(sale_data, schemas["sales"])
     
     # validate data
-    # validate_data(clean_customer_data)
+    validate_data(clean_customer_data, clean_product_data, clean_sale_data)
 
 main()
