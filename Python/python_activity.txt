@@ -1,0 +1,7 @@
+2026-03-06 15:55:16,625 - INFO - 6 - Program has Started
+2026-03-06 15:55:16,626 - INFO - 9 - DataSet Definition
+2026-03-06 15:55:16,626 - INFO - 65 - Transaction Data successfully validated
+2026-03-06 15:55:16,626 - INFO - 105 - Converting list of dictionaries into separate dataframes
+2026-03-06 15:55:16,627 - INFO - 114 - Merging two dataframes into one as inner join
+2026-03-06 15:55:16,629 - INFO - 117 - Creation of a new column revenue
+2026-03-06 15:55:16,630 - INFO - 120 - Creation of a new column profit

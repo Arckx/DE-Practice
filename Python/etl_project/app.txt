@@ -1,0 +1,17 @@
+2026-04-21 23:17:34,541 - INFO - root - Reading .csv file: etl_project/sales_jan.csv
+2026-04-21 23:17:34,545 - INFO - root - Cleaning .csv file: etl_project/sales_jan.csv
+2026-04-21 23:17:34,549 - INFO - root - Count of dropped rows 0
+2026-04-21 23:17:34,553 - INFO - root - Transforming .csv files: etl_project/sales_jan.csv
+2026-04-21 23:17:34,554 - INFO - root - Appending .csv files into an empty list
+2026-04-21 23:17:34,554 - INFO - root - Reading .csv file: etl_project/sales_feb.csv
+2026-04-21 23:17:34,556 - INFO - root - Cleaning .csv file: etl_project/sales_feb.csv
+2026-04-21 23:17:34,558 - INFO - root - Count of dropped rows 0
+2026-04-21 23:17:34,562 - INFO - root - Transforming .csv files: etl_project/sales_feb.csv
+2026-04-21 23:17:34,565 - INFO - root - Appending .csv files into an empty list
+2026-04-21 23:17:34,565 - INFO - root - Reading .csv file: etl_project/sales_mar.csv
+2026-04-21 23:17:34,567 - INFO - root - Cleaning .csv file: etl_project/sales_mar.csv
+2026-04-21 23:17:34,570 - INFO - root - Count of dropped rows 1
+2026-04-21 23:17:34,575 - INFO - root - Transforming .csv files: etl_project/sales_mar.csv
+2026-04-21 23:17:34,576 - INFO - root - Appending .csv files into an empty list
+2026-04-21 23:17:34,576 - INFO - root - Concatenating the Dataframes into one table and Aggregating Total Sales based on category
+2026-04-21 23:17:34,579 - INFO - root - Saving Concatenated dataframe and Aggregated dataframe separately to .csv

@@ -1,0 +1,13 @@
+Full Name,city,country,quantity,order_date,product_name,price,payment_method,payment_status,Amount
+Ahmed Rustam,Lahore,Pakistan,1,2025-01-10,Laptop,1200,Credit Card,Completed,1200
+Sara Khan,Karachi,Pakistan,2,2025-01-12,Phone,800,Debit Card,Completed,1600
+John Smith,London,UK,3,2025-01-15,Headphones,150,PayPal,Completed,450
+Ahmed Rustam,Lahore,Pakistan,2,2025-01-20,Keyboard,100,Cash,Pending,200
+Ayesha Ali,Islamabad,Pakistan,1,2025-02-01,Tablet,600,Credit Card,Completed,600
+David Lee,Toronto,Canada,1,2025-02-05,Desk,400,Debit Card,Completed,400
+Maria Gomez,Madrid,Spain,5,2025-02-10,Mouse,50,Cash,Completed,250
+Ali Raza,Multan,Pakistan,2,2025-02-12,Chair,250,PayPal,Failed,500
+Emma Watson,Manchester,UK,1,2025-02-15,Monitor,300,Credit Card,Completed,300
+Chen Wei,Beijing,China,4,2025-02-18,Printer,200,Credit Card,Completed,800
+Lucas Martin,Paris,France,1,2025-02-20,Phone,800,Debit Card,Completed,800
+Sara Khan,Karachi,Pakistan,1,2025-02-22,Laptop,1200,Cash,Completed,1200

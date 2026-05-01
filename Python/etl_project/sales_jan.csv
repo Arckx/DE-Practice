@@ -1,0 +1,6 @@
+order_id,product,category,price,quantity
+1,Keyboard,Electronics,50,2
+2,Mouse,Electronics,20,3
+3,Chair,Furniture,100,1
+4,Table,Furniture,200,1
+5,Pen,Stationery,5,10

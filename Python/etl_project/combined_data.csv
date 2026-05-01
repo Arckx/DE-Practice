@@ -1,0 +1,15 @@
+order_id,product,category,price,quantity,total
+1,keyboard,electronics,50,2,100
+2,mouse,electronics,20,3,60
+3,chair,furniture,100,1,100
+4,table,furniture,200,1,200
+5,pen,stationery,5,10,50
+6,laptop,electronics,800,1,800
+7,notebook,stationery,3,20,60
+8,desk,furniture,150,1,150
+9,headphones,electronics,100,2,200
+10,marker,stationery,2,15,30
+11,monitor,electronics,300,1,300
+12,book,stationery,10,5,50
+14,mousepad,electronics,15,2,30
+15,stapler,stationery,8,3,24

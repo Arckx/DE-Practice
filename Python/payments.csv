@@ -1,0 +1,13 @@
+payment_id,order_id,payment_method,payment_status
+PAY001,O001,Credit Card,Completed
+PAY002,O002,Debit Card,Completed
+PAY003,O003,PayPal,Completed
+PAY004,O004,Cash,Pending
+PAY005,O005,Credit Card,Completed
+PAY006,O006,Debit Card,Completed
+PAY007,O007,Cash,Completed
+PAY008,O008,PayPal,Failed
+PAY009,O009,Credit Card,Completed
+PAY010,O010,Credit Card,Completed
+PAY011,O011,Debit Card,Completed
+PAY012,O012,Cash,Completed

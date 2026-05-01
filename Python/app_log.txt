@@ -1,0 +1,6 @@
+2026-04-18 21:47:15,243 - root - INFO - Starting division function
+2026-04-18 21:47:25,416 - root - INFO - Starting division function
+2026-04-18 21:50:19,705 - root - INFO - Starting division function
+2026-04-18 21:51:56,849 - root - INFO - Starting division function
+2026-04-18 21:54:42,802 - root - INFO - Starting division function
+2026-04-18 21:54:42,802 - root - ERROR - Error dividing 10 by 0: division by zero
