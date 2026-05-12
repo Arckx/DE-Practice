@@ -180,20 +180,20 @@
 
 # Inner Classes
 
-class Outer:
-  def __init__(self):
-    self.name = "Outer"
+# class Outer:
+#   def __init__(self):
+#     self.name = "Outer"
 
-  class Inner:
-    def __init__(self):
-      self.name = "Inner"
+#   class Inner:
+#     def __init__(self):
+#       self.name = "Inner"
 
-    def display(self):
-      print("Hello from inner class")
+#     def display(self):
+#       print("Hello from inner class")
 
-outer = Outer()
-inner = outer.Inner()
-inner.display() 
+# outer = Outer()
+# inner = outer.Inner()
+# inner.display() 
 
 """Inner classes in Python do not automatically have access to the outer class instance.
 
